@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Masters: Smart Waste Monitoring System</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <h1>IoT Smart Dustbin Monitoring Dashboard</h1>
+        <p>A Solution by <span class="highlight-data">Team Track Masters</span> | Real-time Data and Alert Simulation</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="map-section">
+            <h2>Live Location Tracking</h2>
+            <div class="map-mockup">
+                <span class="map-tag">Simulated Municipal Area Map</span>
+                
+                <div class="map-marker" id="marker-bin-001" data-bin="bin-001" title="Bin-001: Loading..."></div>
+                <div class="map-marker" id="marker-bin-002" data-bin="bin-002" title="Bin-002: Loading..."></div>
+                <div class="map-marker" id="marker-bin-003" data-bin="bin-003" title="Bin-003: Loading..."></div>
+            </div>
+            <div class="alert-bar" id="sms-alert">
+                🚨 <span class="highlight-data">CRITICAL ALERT:</span> Bin-003 is <span class="highlight-data">98% FULL</span> at Lat: 19.0760°, Long: 72.8777°! Immediate action required.
+            </div>
+        </div>
+
+        <div class="status-section">
+            <h2>Real-time Fill Status </h2>
+            
+            <div class="bin-card" id="bin-card-bin-001">
+                <h3>Bin ID: DSN-001 <span></span></h3>
+                <div class="level-bar"><div class="level-fill" id="fill-bin-001"></div></div>
+                <div class="data-point">Location: <span class="highlight-data">Lat: 28.7041°, Long: 77.1025°</span></div>
+                <div class="data-point">Last Ping: <span id="time-bin-001"></span></div>
+            </div>
+
+            <div class="bin-card" id="bin-card-bin-002">
+                <h3>Bin ID: DSN-002 <span></span></h3>
+                <div class="level-bar"><div class="level-fill" id="fill-bin-002"></div></div>
+                <div class="data-point">Location: <span class="highlight-data">Lat: 13.0827°, Long: 80.2707°</span></div>
+                <div class="data-point">Last Ping: <span id="time-bin-002"></span></div>
+            </div>
+
+            <div class="bin-card" id="bin-card-bin-003">
+                <h3>Bin ID: DSN-003 <span></span></h3>
+                <div class="level-bar"><div class="level-fill" id="fill-bin-003"></div></div>
+                <div class="data-point">Location: <span class="highlight-data">Lat: 19.0760°, Long: 72.8777°</span></div>
+                <div class="data-point">Last Ping: <span id="time-bin-003"></span></div>
+            </div>
+
+        </div>
+
+        <div class="button-group">
+            <button class="action-button" onclick="alert('Route Optimization Algorithm triggered: Calculating shortest path to all CRITICAL bins...');">
+                Generate Optimized Collection Route (Saves Fuel & Time)
+            </button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

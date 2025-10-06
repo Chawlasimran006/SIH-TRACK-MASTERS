@@ -1,0 +1,244 @@
+/* --- Global Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #eef2f7; /* Lighter, cleaner background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #19446e; /* Deep Blue for Professionalism */
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+}
+.header p {
+    margin: 8px 0 0;
+    font-weight: 400;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr; /* Slightly wider status column */
+    gap: 30px;
+}
+
+/* --- New Highlighting Style (Replaces **) --- */
+.highlight-data {
+    font-weight: 700;
+    color: #428bd3; /* A brighter blue for emphasis */
+}
+
+/* --- Map and Status Sections --- */
+.map-section, .status-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+.status-section {
+    display: flex; /* Use flex for clean card stacking */
+    flex-direction: column;
+    gap: 20px;
+}
+h2 {
+    color: #004d99;
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 12px;
+    margin-top: 0;
+    font-size: 1.4em;
+}
+.data-point {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    color: #5a6268;
+}
+
+/* --- Bin Cards --- */
+.bin-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 6px solid #ccc;
+    background-color: #fafafa; /* Subtle off-white background for cards */
+}
+.bin-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.bin-card h3 {
+    margin-top: 0;
+    color: #212529;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.bin-card h3 span {
+    font-weight: 700;
+    font-size: 0.9em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: white;
+}
+
+/* Status Colors & Animations */
+.bin-card.critical {
+    border-left-color: #c82333; /* Darker Red */
+    background-color: #fceceb;
+}
+.bin-card.medium {
+    border-left-color: #e0a800; /* Darker Yellow */
+    background-color: #fff8e8;
+}
+.bin-card.low {
+    border-left-color: #218838; /* Darker Green */
+    background-color: #ebfaed;
+}
+
+.bin-card.critical h3 span { background-color: #dc3545; }
+.bin-card.medium h3 span { background-color: #ffc107; }
+.bin-card.low h3 span { background-color: #28a745; }
+
+/* Critical Pulse Animation */
+.bin-card.critical {
+    animation: pulse-critical 1.5s infinite alternate;
+}
+@keyframes pulse-critical {
+    from { box-shadow: 0 0 10px rgba(220, 53, 69, 0.3); }
+    to { box-shadow: 0 0 15px rgba(220, 53, 69, 0.8); }
+}
+
+/* --- Level Bar --- */
+.level-bar {
+    background-color: #dee2e6;
+    border-radius: 8px;
+    height: 25px;
+    margin: 10px 0 15px;
+    overflow: hidden;
+    border: 1px solid #c2c9d1;
+}
+.level-fill {
+    height: 100%;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: width 0.5s ease;
+    border-radius: 8px 0 0 8px; 
+}
+.fill-red { background-color: #dc3545; }
+.fill-yellow { background-color: #ffc107; }
+.fill-green { background-color: #28a745; }
+
+/* --- Map Mockup and Markers --- */
+.map-mockup {
+    width: 100%;
+    height: 450px; /* Increased map height */
+    border-radius: 8px;
+    position: relative;
+    background-image: url('https://i.imgur.com/G4P4QYv.png'); 
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #ddd;
+}
+.map-tag {
+    position: absolute; 
+    top: 15px; 
+    left: 15px; 
+    background: rgba(0,0,0,0.7); 
+    color: white; 
+    padding: 6px 10px; 
+    border-radius: 5px; 
+    font-size: 0.9em;
+    font-weight: 500;
+}
+.map-marker {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.map-marker:hover {
+    transform: scale(1.6);
+}
+.marker-red { background-color: #dc3545; }
+.marker-yellow { background-color: #ffc107; }
+.marker-green { background-color: #28a745; }
+#marker-bin-001 { top: 20%; left: 30%; }
+#marker-bin-002 { top: 50%; left: 65%; }
+#marker-bin-003 { top: 80%; left: 45%; }
+
+/* --- Alert Bar (SMS Simulation) --- */
+.alert-bar {
+    background-color: #c82333;
+    color: white;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.15em;
+    font-weight: 500;
+    display: none; 
+    margin-top: 25px;
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.9);
+}
+
+/* --- Action Button --- */
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px 0;
+    grid-column: 1 / 3;
+}
+.action-button {
+    background-color: #19446e;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.action-button:hover {
+    background-color: #138496;
+    transform: translateY(-1px);
+}
+.action-button:active {
+    background-color: #0d6d7e;
+    transform: translateY(1px);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 850px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .button-group {
+        grid-column: 1 / 2;
+    }
+}
